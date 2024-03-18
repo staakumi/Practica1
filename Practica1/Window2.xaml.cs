@@ -38,22 +38,60 @@ namespace Practica1
         }
         private void ShowEmployees_ClickEF(object sender, RoutedEventArgs e)
         {
+            IDTbx.Visibility = Visibility.Visible;
+            SurnameTbx.Visibility = Visibility.Visible;
+            NameTbx.Visibility = Visibility.Visible;
+            MiddleNameTbx.Visibility = Visibility.Visible;
+            AgeTbx.Visibility = Visibility.Visible;
+
+            IDPro.Visibility = Visibility.Collapsed;
+            NamePro.Visibility = Visibility.Collapsed;
+            PricePro.Visibility = Visibility.Collapsed;
+
             EmployeesDgr.Visibility = Visibility.Visible;
             ProductsDgr.Visibility = Visibility.Collapsed;
         }
-        private void ShowProducts_ClickEF(Object sender, RoutedEventArgs e)
+        private void ShowProducts_ClickEF(object sender, RoutedEventArgs e)
         {
+            IDTbx.Visibility = Visibility.Collapsed;
+            SurnameTbx.Visibility = Visibility.Collapsed;
+            NameTbx.Visibility = Visibility.Collapsed;
+            MiddleNameTbx.Visibility = Visibility.Collapsed;
+            AgeTbx.Visibility = Visibility.Collapsed;
+
+            IDPro.Visibility= Visibility.Visible;
+            NamePro.Visibility= Visibility.Visible;
+            PricePro.Visibility= Visibility.Visible;
+
             EmployeesDgr.Visibility = Visibility.Collapsed;
             ProductsDgr.Visibility = Visibility.Visible;
         }
         private void ButtonAddClick(object sender, RoutedEventArgs e)
         {
-            Shop_Employees emp = new Shop_Employees();
-            emp.Employees_Last_Name = NameTbx.Text;
+            if(EmployeesDgr.Visibility == Visibility.Visible)
+            {
 
+            Shop_Employees emp = new Shop_Employees();
+            emp.ID_Employees_Info = Convert.ToInt32(IDTbx.Text);
+            emp.Employees_Last_Name = SurnameTbx.Text;
+            emp.Employees_First_Name = NameTbx.Text;
+            emp.Employees_Middle_Name = SurnameTbx.Text;
+            emp.Employees_Age = Convert.ToInt32(AgeTbx.Text);
             context.Shop_Employees.Add(emp);
             context.SaveChanges();
             EmployeesDgr.ItemsSource = context.Shop_Employees.ToList();
+
+            }
+            else
+            {
+                Products emp2 = new Products();
+                emp2.ID_Products_Info = Convert.ToInt32(IDPro.Text);
+                emp2.Products_Name = NamePro.Text;
+                emp2.Products_Price = Convert.ToInt32(PricePro.Text);
+                context.Products.Add(emp2);
+                context.SaveChanges();
+                ProductsDgr.ItemsSource = context.Products.ToList();
+            }
         }
         private void ButtonChangeClick(object sender, RoutedEventArgs e)
         {
