@@ -16,11 +16,11 @@
         <DataGrid x:Name="ProductsDgr" Visibility="Collapsed"/>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1">
-            <Button Content="Показать сотрудников"/>
-            <Button Content="Показать товары"/>
+            <Button Content="Показать сотрудников" Click="ShowEmployees_ClickEF"/>
+            <Button Content="Показать товары" Click="ShowProducts_ClickEF"/>
         </StackPanel>
         <TextBox x:Name="NameTbx" Grid.Row="2"/>
-        <Button Grid.Row="3" Content="Добавить"/>
+        <Button Grid.Row="3" Content="Добавить" Click="ButtonAddClick"/>
         <Button Grid.Row="4" Content="Изменить"/>
         <Button Grid.Row="5" Content="Удалить"/>
         

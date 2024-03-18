@@ -55,59 +55,9 @@ namespace Practica1
 
         private void OpenNewWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            Window2 window = new Window2(Window2.DataType.Employees); 
+            Window2 window = new Window2(); 
             window.Show();
         }
     }
 
-    public partial class Window2 : Window
-    {
-        private Hobby_shopEntities4 context = new Hobby_shopEntities4();
-        public enum DataType
-        {
-            Employees,
-            Products
-        }
-
-        public Window2(DataType dataType)
-        {
-            InitializeComponent();
-            EmployeesDgr.ItemsSource = context.Shop_Employees_Rus.ToList();
-            EmployeesDgr.DisplayMemberPath = "Фамилия сотрудника";
-
-
-            ProductsDgr.ItemsSource = context.Products_Rus.ToList();
-            ProductsDgr.DisplayMemberPath = "Название товара";
-
-            if (dataType == DataType.Employees)
-            {
-                EmployeesDgr.Visibility = Visibility.Visible;
-                ProductsDgr.Visibility = Visibility.Collapsed;
-            }
-            else if (dataType == DataType.Products)
-            {
-                EmployeesDgr.Visibility = Visibility.Collapsed;
-                ProductsDgr.Visibility = Visibility.Visible;
-            }
-
-
-        }
-        private void ButtonAddClick(object sender, RoutedEventArgs e)
-        {
-            Shop_Employees_Rus emp = new Shop_Employees_Rus();
-            emp.Имя_сотрудника = NameTbx.Text;
-
-            context.Shop_Employees_Rus.Add(emp);
-            context.SaveChanges();
-            EmployeesDgr.ItemsSource = context.Shop_Employees_Rus.ToList();
-        }
-        private void ButtonChangeClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void ButtonRemoveClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-    }
 }
