@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Hobby_shopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Hobby_shop.dbo.Hobby_Shop" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Hobby_Shop">
+          <Key>
+            <PropertyRef Name="Employees_Info_ID" />
+            <PropertyRef Name="Products_Info_ID" />
+          </Key>
+          <Property Name="Employees_Info_ID" Type="int" Nullable="false" />
+          <Property Name="Products_Info_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID_Products_Info" />
+          </Key>
+          <Property Name="ID_Products_Info" Type="int" Nullable="false" />
+          <Property Name="Products_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Products_Price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shop_Employees">
+          <Key>
+            <PropertyRef Name="ID_Employees_Info" />
+          </Key>
+          <Property Name="ID_Employees_Info" Type="int" Nullable="false" />
+          <Property Name="Employees_Last_Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Employees_First_Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Employees_Middle_Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Employees_Age" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Hobby_shop.dbo.Products_Rus" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Products_Rus">
+          <Key>
+            <PropertyRef Name="Products_Info_ID" />
+            <PropertyRef Name="Название товара" />
+            <PropertyRef Name="Цена товара в рублях" />
+          </Key>
+          <Property Name="Products_Info_ID" Type="int" Nullable="false" />
+          <Property Name="Название товара" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Цена товара в рублях" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Hobby_shop.dbo.Shop_Employees_Rus" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Shop_Employees_Rus">
+          <Key>
+            <PropertyRef Name="Employees_Info_ID" />
+            <PropertyRef Name="Фамилия сотрудника" />
+            <PropertyRef Name="Имя сотрудника" />
+            <PropertyRef Name="Отчество сотрудника" />
+            <PropertyRef Name="Возраст сотрудника" />
+          </Key>
+          <Property Name="Employees_Info_ID" Type="int" Nullable="false" />
+          <Property Name="Фамилия сотрудника" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Имя сотрудника" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Отчество сотрудника" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Возраст сотрудника" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Hobby_Sho__Emplo__4CA06362">
+          <End Role="Shop_Employees" Type="Self.Shop_Employees" Multiplicity="1" />
+          <End Role="Hobby_Shop" Type="Self.Hobby_Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop_Employees">
+              <PropertyRef Name="ID_Employees_Info" />
+            </Principal>
+            <Dependent Role="Hobby_Shop">
+              <PropertyRef Name="Employees_Info_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Hobby_Sho__Produ__4D94879B">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Hobby_Shop" Type="Self.Hobby_Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ID_Products_Info" />
+            </Principal>
+            <Dependent Role="Hobby_Shop">
+              <PropertyRef Name="Products_Info_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Hobby_shopModelContainer">
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shop_Employees" EntityType="Self.Shop_Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hobby_Shop" EntityType="Self.Hobby_Shop" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Hobby_Shop].[Employees_Info_ID] AS [Employees_Info_ID], 
+    [Hobby_Shop].[Products_Info_ID] AS [Products_Info_ID]
+    FROM [dbo].[Hobby_Shop] AS [Hobby_Shop]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Products_Rus" EntityType="Self.Products_Rus" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Products_Rus].[Products_Info_ID] AS [Products_Info_ID], 
+    [Products_Rus].[Название товара] AS [Название товара], 
+    [Products_Rus].[Цена товара в рублях] AS [Цена товара в рублях]
+    FROM [dbo].[Products_Rus] AS [Products_Rus]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Shop_Employees_Rus" EntityType="Self.Shop_Employees_Rus" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Shop_Employees_Rus].[Employees_Info_ID] AS [Employees_Info_ID], 
+    [Shop_Employees_Rus].[Фамилия сотрудника] AS [Фамилия сотрудника], 
+    [Shop_Employees_Rus].[Имя сотрудника] AS [Имя сотрудника], 
+    [Shop_Employees_Rus].[Отчество сотрудника] AS [Отчество сотрудника], 
+    [Shop_Employees_Rus].[Возраст сотрудника] AS [Возраст сотрудника]
+    FROM [dbo].[Shop_Employees_Rus] AS [Shop_Employees_Rus]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Hobby_Sho__Emplo__4CA06362" Association="Self.FK__Hobby_Sho__Emplo__4CA06362">
+            <End Role="Shop_Employees" EntitySet="Shop_Employees" />
+            <End Role="Hobby_Shop" EntitySet="Hobby_Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Hobby_Sho__Produ__4D94879B" Association="Self.FK__Hobby_Sho__Produ__4D94879B">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Hobby_Shop" EntitySet="Hobby_Shop" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Hobby_shopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID_Products_Info" />
+          </Key>
+          <Property Name="ID_Products_Info" Type="Int32" Nullable="false" />
+          <Property Name="Products_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Products_Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Shop_Employees" Relationship="Self.Hobby_Shop" FromRole="Products" ToRole="Shop_Employees" />
+        </EntityType>
+        <EntityType Name="Shop_Employees">
+          <Key>
+            <PropertyRef Name="ID_Employees_Info" />
+          </Key>
+          <Property Name="ID_Employees_Info" Type="Int32" Nullable="false" />
+          <Property Name="Employees_Last_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employees_First_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employees_Middle_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employees_Age" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.Hobby_Shop" FromRole="Shop_Employees" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Products_Rus">
+          <Key>
+            <PropertyRef Name="Products_Info_ID" />
+            <PropertyRef Name="Название_товара" />
+            <PropertyRef Name="Цена_товара_в_рублях" />
+          </Key>
+          <Property Name="Products_Info_ID" Type="Int32" Nullable="false" />
+          <Property Name="Название_товара" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Цена_товара_в_рублях" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shop_Employees_Rus">
+          <Key>
+            <PropertyRef Name="Employees_Info_ID" />
+            <PropertyRef Name="Фамилия_сотрудника" />
+            <PropertyRef Name="Имя_сотрудника" />
+            <PropertyRef Name="Отчество_сотрудника" />
+            <PropertyRef Name="Возраст_сотрудника" />
+          </Key>
+          <Property Name="Employees_Info_ID" Type="Int32" Nullable="false" />
+          <Property Name="Фамилия_сотрудника" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Имя_сотрудника" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Отчество_сотрудника" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Возраст_сотрудника" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="Hobby_Shop">
+          <End Role="Shop_Employees" Type="Self.Shop_Employees" Multiplicity="*" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Hobby_shopEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Products" EntityType="Self.Products" />
+          <EntitySet Name="Shop_Employees" EntityType="Self.Shop_Employees" />
+          <EntitySet Name="Products_Rus" EntityType="Self.Products_Rus" />
+          <EntitySet Name="Shop_Employees_Rus" EntityType="Self.Shop_Employees_Rus" />
+          <AssociationSet Name="Hobby_Shop" Association="Self.Hobby_Shop">
+            <End Role="Shop_Employees" EntitySet="Shop_Employees" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Hobby_shopModelContainer" CdmEntityContainer="Hobby_shopEntities4">
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="Hobby_shopModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ID_Products_Info" ColumnName="ID_Products_Info" />
+                <ScalarProperty Name="Products_Name" ColumnName="Products_Name" />
+                <ScalarProperty Name="Products_Price" ColumnName="Products_Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shop_Employees">
+            <EntityTypeMapping TypeName="Hobby_shopModel.Shop_Employees">
+              <MappingFragment StoreEntitySet="Shop_Employees">
+                <ScalarProperty Name="ID_Employees_Info" ColumnName="ID_Employees_Info" />
+                <ScalarProperty Name="Employees_Last_Name" ColumnName="Employees_Last_Name" />
+                <ScalarProperty Name="Employees_First_Name" ColumnName="Employees_First_Name" />
+                <ScalarProperty Name="Employees_Middle_Name" ColumnName="Employees_Middle_Name" />
+                <ScalarProperty Name="Employees_Age" ColumnName="Employees_Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products_Rus">
+            <EntityTypeMapping TypeName="Hobby_shopModel.Products_Rus">
+              <MappingFragment StoreEntitySet="Products_Rus">
+                <ScalarProperty Name="Products_Info_ID" ColumnName="Products_Info_ID" />
+                <ScalarProperty Name="Название_товара" ColumnName="Название товара" />
+                <ScalarProperty Name="Цена_товара_в_рублях" ColumnName="Цена товара в рублях" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shop_Employees_Rus">
+            <EntityTypeMapping TypeName="Hobby_shopModel.Shop_Employees_Rus">
+              <MappingFragment StoreEntitySet="Shop_Employees_Rus">
+                <ScalarProperty Name="Employees_Info_ID" ColumnName="Employees_Info_ID" />
+                <ScalarProperty Name="Фамилия_сотрудника" ColumnName="Фамилия сотрудника" />
+                <ScalarProperty Name="Имя_сотрудника" ColumnName="Имя сотрудника" />
+                <ScalarProperty Name="Отчество_сотрудника" ColumnName="Отчество сотрудника" />
+                <ScalarProperty Name="Возраст_сотрудника" ColumnName="Возраст сотрудника" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Hobby_Shop" TypeName="Hobby_shopModel.Hobby_Shop" StoreEntitySet="Hobby_Shop">
+            <EndProperty Name="Shop_Employees">
+              <ScalarProperty Name="ID_Employees_Info" ColumnName="Employees_Info_ID" />
+            </EndProperty>
+            <EndProperty Name="Products">
+              <ScalarProperty Name="ID_Products_Info" ColumnName="Products_Info_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

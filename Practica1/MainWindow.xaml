@@ -12,6 +12,8 @@
 
         <DataGrid x:Name="ProductsDataGrid" Visibility="Collapsed"/>
 
+        <Button Content="Entity Framework -:- Dataset" Click="OpenNewWindowButton_Click" VerticalAlignment="Bottom"/>
+
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1">
             <Button Content="Показать таблицу сотрудников" Click="ShowEmployees_Click"/>
             <Button Content="Показать таблицу товаров" Click="ShowProducts_Click"/>

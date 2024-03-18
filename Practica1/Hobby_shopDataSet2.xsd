@@ -154,14 +154,13 @@ SELECT ID_Employees_Info, Employees_Last_Name, Employees_First_Name, Employees_M
               <DbSource ConnectionRef="Hobby_shopConnectionString (Settings)" DbObjectName="Hobby_shop.dbo.Products_Rus" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Products_Info_ID, [Название товара], [Цена товара в рублях] FROM dbo.Products_Rus</CommandText>
+                    <CommandText>SELECT [Название товара], [Цена товара в рублях] FROM dbo.Products_Rus</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Products_Info_ID" DataSetColumn="Products_Info_ID" />
               <Mapping SourceColumn="Название товара" DataSetColumn="Название товара" />
               <Mapping SourceColumn="Цена товара в рублях" DataSetColumn="Цена товара в рублях" />
             </Mappings>
@@ -172,14 +171,13 @@ SELECT ID_Employees_Info, Employees_Last_Name, Employees_First_Name, Employees_M
               <DbSource ConnectionRef="Hobby_shopConnectionString (Settings)" DbObjectName="Hobby_shop.dbo.Shop_Employees_Rus" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Employees_Info_ID, [Фамилия сотрудника], [Имя сотрудника], [Отчество сотрудника], [Возраст сотрудника] FROM dbo.Shop_Employees_Rus</CommandText>
+                    <CommandText>SELECT [Фамилия сотрудника], [Имя сотрудника], [Отчество сотрудника], [Возраст сотрудника] FROM dbo.Shop_Employees_Rus</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Employees_Info_ID" DataSetColumn="Employees_Info_ID" />
               <Mapping SourceColumn="Фамилия сотрудника" DataSetColumn="Фамилия сотрудника" />
               <Mapping SourceColumn="Имя сотрудника" DataSetColumn="Имя сотрудника" />
               <Mapping SourceColumn="Отчество сотрудника" DataSetColumn="Отчество сотрудника" />
@@ -250,7 +248,6 @@ SELECT ID_Employees_Info, Employees_Last_Name, Employees_First_Name, Employees_M
         <xs:element name="Products_Rus" msprop:Generator_RowEvHandlerName="Products_RusRowChangeEventHandler" msprop:Generator_RowDeletedName="Products_RusRowDeleted" msprop:Generator_RowDeletingName="Products_RusRowDeleting" msprop:Generator_RowEvArgName="Products_RusRowChangeEvent" msprop:Generator_TablePropName="Products_Rus" msprop:Generator_RowChangedName="Products_RusRowChanged" msprop:Generator_RowChangingName="Products_RusRowChanging" msprop:Generator_TableClassName="Products_RusDataTable" msprop:Generator_RowClassName="Products_RusRow" msprop:Generator_TableVarName="tableProducts_Rus" msprop:Generator_UserTableName="Products_Rus">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Products_Info_ID" msprop:Generator_ColumnPropNameInRow="Products_Info_ID" msprop:Generator_ColumnPropNameInTable="Products_Info_IDColumn" msprop:Generator_ColumnVarNameInTable="columnProducts_Info_ID" msprop:Generator_UserColumnName="Products_Info_ID" type="xs:int" />
               <xs:element name="Название_x0020_товара" msprop:Generator_ColumnPropNameInRow="Название_товара" msprop:Generator_ColumnPropNameInTable="Название_товараColumn" msprop:Generator_ColumnVarNameInTable="columnНазвание_товара" msprop:Generator_UserColumnName="Название товара">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -265,7 +262,6 @@ SELECT ID_Employees_Info, Employees_Last_Name, Employees_First_Name, Employees_M
         <xs:element name="Shop_Employees_Rus" msprop:Generator_RowEvHandlerName="Shop_Employees_RusRowChangeEventHandler" msprop:Generator_RowDeletedName="Shop_Employees_RusRowDeleted" msprop:Generator_RowDeletingName="Shop_Employees_RusRowDeleting" msprop:Generator_RowEvArgName="Shop_Employees_RusRowChangeEvent" msprop:Generator_TablePropName="Shop_Employees_Rus" msprop:Generator_RowChangedName="Shop_Employees_RusRowChanged" msprop:Generator_RowChangingName="Shop_Employees_RusRowChanging" msprop:Generator_TableClassName="Shop_Employees_RusDataTable" msprop:Generator_RowClassName="Shop_Employees_RusRow" msprop:Generator_TableVarName="tableShop_Employees_Rus" msprop:Generator_UserTableName="Shop_Employees_Rus">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Employees_Info_ID" msprop:Generator_ColumnPropNameInRow="Employees_Info_ID" msprop:Generator_ColumnPropNameInTable="Employees_Info_IDColumn" msprop:Generator_ColumnVarNameInTable="columnEmployees_Info_ID" msprop:Generator_UserColumnName="Employees_Info_ID" type="xs:int" />
               <xs:element name="Фамилия_x0020_сотрудника" msprop:Generator_ColumnPropNameInRow="Фамилия_сотрудника" msprop:Generator_ColumnPropNameInTable="Фамилия_сотрудникаColumn" msprop:Generator_ColumnVarNameInTable="columnФамилия_сотрудника" msprop:Generator_UserColumnName="Фамилия сотрудника">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

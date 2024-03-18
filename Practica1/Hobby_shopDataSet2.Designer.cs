@@ -1312,8 +1312,6 @@ namespace Practica1 {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class Products_RusDataTable : global::System.Data.TypedTableBase<Products_RusRow> {
             
-            private global::System.Data.DataColumn columnProducts_Info_ID;
-            
             private global::System.Data.DataColumn columnНазвание_товара;
             
             private global::System.Data.DataColumn columnЦена_товара_в_рублях;
@@ -1349,14 +1347,6 @@ namespace Practica1 {
             protected Products_RusDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Products_Info_IDColumn {
-                get {
-                    return this.columnProducts_Info_ID;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1412,10 +1402,9 @@ namespace Practica1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Products_RusRow AddProducts_RusRow(int Products_Info_ID, string Название_товара, int Цена_товара_в_рублях) {
+            public Products_RusRow AddProducts_RusRow(string Название_товара, int Цена_товара_в_рублях) {
                 Products_RusRow rowProducts_RusRow = ((Products_RusRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Products_Info_ID,
                         Название_товара,
                         Цена_товара_в_рублях};
                 rowProducts_RusRow.ItemArray = columnValuesArray;
@@ -1440,7 +1429,6 @@ namespace Practica1 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnProducts_Info_ID = base.Columns["Products_Info_ID"];
                 this.columnНазвание_товара = base.Columns["Название товара"];
                 this.columnЦена_товара_в_рублях = base.Columns["Цена товара в рублях"];
             }
@@ -1448,13 +1436,10 @@ namespace Practica1 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnProducts_Info_ID = new global::System.Data.DataColumn("Products_Info_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProducts_Info_ID);
                 this.columnНазвание_товара = new global::System.Data.DataColumn("Название товара", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnНазвание_товара);
                 this.columnЦена_товара_в_рублях = new global::System.Data.DataColumn("Цена товара в рублях", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnЦена_товара_в_рублях);
-                this.columnProducts_Info_ID.AllowDBNull = false;
                 this.columnНазвание_товара.AllowDBNull = false;
                 this.columnНазвание_товара.MaxLength = 50;
                 this.columnЦена_товара_в_рублях.AllowDBNull = false;
@@ -1591,8 +1576,6 @@ namespace Practica1 {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class Shop_Employees_RusDataTable : global::System.Data.TypedTableBase<Shop_Employees_RusRow> {
             
-            private global::System.Data.DataColumn columnEmployees_Info_ID;
-            
             private global::System.Data.DataColumn columnФамилия_сотрудника;
             
             private global::System.Data.DataColumn columnИмя_сотрудника;
@@ -1632,14 +1615,6 @@ namespace Practica1 {
             protected Shop_Employees_RusDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Employees_Info_IDColumn {
-                get {
-                    return this.columnEmployees_Info_ID;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1711,10 +1686,9 @@ namespace Practica1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Shop_Employees_RusRow AddShop_Employees_RusRow(int Employees_Info_ID, string Фамилия_сотрудника, string Имя_сотрудника, string Отчество_сотрудника, int Возраст_сотрудника) {
+            public Shop_Employees_RusRow AddShop_Employees_RusRow(string Фамилия_сотрудника, string Имя_сотрудника, string Отчество_сотрудника, int Возраст_сотрудника) {
                 Shop_Employees_RusRow rowShop_Employees_RusRow = ((Shop_Employees_RusRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Employees_Info_ID,
                         Фамилия_сотрудника,
                         Имя_сотрудника,
                         Отчество_сотрудника,
@@ -1741,7 +1715,6 @@ namespace Practica1 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnEmployees_Info_ID = base.Columns["Employees_Info_ID"];
                 this.columnФамилия_сотрудника = base.Columns["Фамилия сотрудника"];
                 this.columnИмя_сотрудника = base.Columns["Имя сотрудника"];
                 this.columnОтчество_сотрудника = base.Columns["Отчество сотрудника"];
@@ -1751,8 +1724,6 @@ namespace Practica1 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnEmployees_Info_ID = new global::System.Data.DataColumn("Employees_Info_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEmployees_Info_ID);
                 this.columnФамилия_сотрудника = new global::System.Data.DataColumn("Фамилия сотрудника", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnФамилия_сотрудника);
                 this.columnИмя_сотрудника = new global::System.Data.DataColumn("Имя сотрудника", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1761,7 +1732,6 @@ namespace Practica1 {
                 base.Columns.Add(this.columnОтчество_сотрудника);
                 this.columnВозраст_сотрудника = new global::System.Data.DataColumn("Возраст сотрудника", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnВозраст_сотрудника);
-                this.columnEmployees_Info_ID.AllowDBNull = false;
                 this.columnФамилия_сотрудника.AllowDBNull = false;
                 this.columnФамилия_сотрудника.MaxLength = 20;
                 this.columnИмя_сотрудника.AllowDBNull = false;
@@ -2110,17 +2080,6 @@ namespace Practica1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Products_Info_ID {
-                get {
-                    return ((int)(this[this.tableProducts_Rus.Products_Info_IDColumn]));
-                }
-                set {
-                    this[this.tableProducts_Rus.Products_Info_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Название_товара {
                 get {
                     return ((string)(this[this.tableProducts_Rus.Название_товараColumn]));
@@ -2154,17 +2113,6 @@ namespace Practica1 {
             internal Shop_Employees_RusRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableShop_Employees_Rus = ((Shop_Employees_RusDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Employees_Info_ID {
-                get {
-                    return ((int)(this[this.tableShop_Employees_Rus.Employees_Info_IDColumn]));
-                }
-                set {
-                    this[this.tableShop_Employees_Rus.Employees_Info_IDColumn] = value;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3449,7 +3397,6 @@ SELECT ID_Employees_Info, Employees_Last_Name, Employees_First_Name, Employees_M
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Products_Rus";
-            tableMapping.ColumnMappings.Add("Products_Info_ID", "Products_Info_ID");
             tableMapping.ColumnMappings.Add("Название товара", "Название товара");
             tableMapping.ColumnMappings.Add("Цена товара в рублях", "Цена товара в рублях");
             this._adapter.TableMappings.Add(tableMapping);
@@ -3468,8 +3415,7 @@ SELECT ID_Employees_Info, Employees_Last_Name, Employees_First_Name, Employees_M
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Products_Info_ID, [Название товара], [Цена товара в рублях] FROM dbo.Produ" +
-                "cts_Rus";
+            this._commandCollection[0].CommandText = "SELECT [Название товара], [Цена товара в рублях] FROM dbo.Products_Rus";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3619,7 +3565,6 @@ SELECT ID_Employees_Info, Employees_Last_Name, Employees_First_Name, Employees_M
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Shop_Employees_Rus";
-            tableMapping.ColumnMappings.Add("Employees_Info_ID", "Employees_Info_ID");
             tableMapping.ColumnMappings.Add("Фамилия сотрудника", "Фамилия сотрудника");
             tableMapping.ColumnMappings.Add("Имя сотрудника", "Имя сотрудника");
             tableMapping.ColumnMappings.Add("Отчество сотрудника", "Отчество сотрудника");
@@ -3640,8 +3585,8 @@ SELECT ID_Employees_Info, Employees_Last_Name, Employees_First_Name, Employees_M
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Employees_Info_ID, [Фамилия сотрудника], [Имя сотрудника], [Отчество сотру" +
-                "дника], [Возраст сотрудника] FROM dbo.Shop_Employees_Rus";
+            this._commandCollection[0].CommandText = "SELECT [Фамилия сотрудника], [Имя сотрудника], [Отчество сотрудника], [Возраст со" +
+                "трудника] FROM dbo.Shop_Employees_Rus";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
