@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Hobby_shopModelContainer" CdmEntityContainer="Hobby_shopEntities">
+    <EntitySetMapping Name="Products_Rus">
+      <EntityTypeMapping TypeName="Hobby_shopModel.Products_Rus">
+        <MappingFragment StoreEntitySet="Products_Rus">
+          <ScalarProperty Name="Products_Info_ID" ColumnName="Products_Info_ID" />
+          <ScalarProperty Name="Название_товара" ColumnName="Название товара" />
+          <ScalarProperty Name="Цена_товара_в_рублях" ColumnName="Цена товара в рублях" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shop_Employees_Rus">
+      <EntityTypeMapping TypeName="Hobby_shopModel.Shop_Employees_Rus">
+        <MappingFragment StoreEntitySet="Shop_Employees_Rus">
+          <ScalarProperty Name="Employees_Info_ID" ColumnName="Employees_Info_ID" />
+          <ScalarProperty Name="Фамилия_сотрудника" ColumnName="Фамилия сотрудника" />
+          <ScalarProperty Name="Имя_сотрудника" ColumnName="Имя сотрудника" />
+          <ScalarProperty Name="Отчество_сотрудника" ColumnName="Отчество сотрудника" />
+          <ScalarProperty Name="Возраст_сотрудника" ColumnName="Возраст сотрудника" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

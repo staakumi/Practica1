@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Hobby_shopModelContainer" CdmEntityContainer="Hobby_shopEntities4">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Hobby_shopModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ID_Products_Info" ColumnName="ID_Products_Info" />
+          <ScalarProperty Name="Products_Name" ColumnName="Products_Name" />
+          <ScalarProperty Name="Products_Price" ColumnName="Products_Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shop_Employees">
+      <EntityTypeMapping TypeName="Hobby_shopModel.Shop_Employees">
+        <MappingFragment StoreEntitySet="Shop_Employees">
+          <ScalarProperty Name="ID_Employees_Info" ColumnName="ID_Employees_Info" />
+          <ScalarProperty Name="Employees_Last_Name" ColumnName="Employees_Last_Name" />
+          <ScalarProperty Name="Employees_First_Name" ColumnName="Employees_First_Name" />
+          <ScalarProperty Name="Employees_Middle_Name" ColumnName="Employees_Middle_Name" />
+          <ScalarProperty Name="Employees_Age" ColumnName="Employees_Age" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products_Rus">
+      <EntityTypeMapping TypeName="Hobby_shopModel.Products_Rus">
+        <MappingFragment StoreEntitySet="Products_Rus">
+          <ScalarProperty Name="Products_Info_ID" ColumnName="Products_Info_ID" />
+          <ScalarProperty Name="Название_товара" ColumnName="Название товара" />
+          <ScalarProperty Name="Цена_товара_в_рублях" ColumnName="Цена товара в рублях" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shop_Employees_Rus">
+      <EntityTypeMapping TypeName="Hobby_shopModel.Shop_Employees_Rus">
+        <MappingFragment StoreEntitySet="Shop_Employees_Rus">
+          <ScalarProperty Name="Employees_Info_ID" ColumnName="Employees_Info_ID" />
+          <ScalarProperty Name="Фамилия_сотрудника" ColumnName="Фамилия сотрудника" />
+          <ScalarProperty Name="Имя_сотрудника" ColumnName="Имя сотрудника" />
+          <ScalarProperty Name="Отчество_сотрудника" ColumnName="Отчество сотрудника" />
+          <ScalarProperty Name="Возраст_сотрудника" ColumnName="Возраст сотрудника" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Hobby_Shop" TypeName="Hobby_shopModel.Hobby_Shop" StoreEntitySet="Hobby_Shop">
+      <EndProperty Name="Shop_Employees">
+        <ScalarProperty Name="ID_Employees_Info" ColumnName="Employees_Info_ID" />
+      </EndProperty>
+      <EndProperty Name="Products">
+        <ScalarProperty Name="ID_Products_Info" ColumnName="Products_Info_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

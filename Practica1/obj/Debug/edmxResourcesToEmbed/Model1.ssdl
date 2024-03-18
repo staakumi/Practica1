@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Hobby_shopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Hobby_shop.dbo.Products_Rus" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Products_Rus">
+    <Key>
+      <PropertyRef Name="Products_Info_ID" />
+      <PropertyRef Name="Название товара" />
+      <PropertyRef Name="Цена товара в рублях" />
+    </Key>
+    <Property Name="Products_Info_ID" Type="int" Nullable="false" />
+    <Property Name="Название товара" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Цена товара в рублях" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Hobby_shop.dbo.Shop_Employees_Rus" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Shop_Employees_Rus">
+    <Key>
+      <PropertyRef Name="Employees_Info_ID" />
+      <PropertyRef Name="Фамилия сотрудника" />
+      <PropertyRef Name="Имя сотрудника" />
+      <PropertyRef Name="Отчество сотрудника" />
+      <PropertyRef Name="Возраст сотрудника" />
+    </Key>
+    <Property Name="Employees_Info_ID" Type="int" Nullable="false" />
+    <Property Name="Фамилия сотрудника" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Имя сотрудника" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Отчество сотрудника" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Возраст сотрудника" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Хранилище Hobby_shopModelContainer">
+    <EntitySet Name="Products_Rus" EntityType="Self.Products_Rus" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Products_Rus].[Products_Info_ID] AS [Products_Info_ID], 
+    [Products_Rus].[Название товара] AS [Название товара], 
+    [Products_Rus].[Цена товара в рублях] AS [Цена товара в рублях]
+    FROM [dbo].[Products_Rus] AS [Products_Rus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Shop_Employees_Rus" EntityType="Self.Shop_Employees_Rus" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Shop_Employees_Rus].[Employees_Info_ID] AS [Employees_Info_ID], 
+    [Shop_Employees_Rus].[Фамилия сотрудника] AS [Фамилия сотрудника], 
+    [Shop_Employees_Rus].[Имя сотрудника] AS [Имя сотрудника], 
+    [Shop_Employees_Rus].[Отчество сотрудника] AS [Отчество сотрудника], 
+    [Shop_Employees_Rus].[Возраст сотрудника] AS [Возраст сотрудника]
+    FROM [dbo].[Shop_Employees_Rus] AS [Shop_Employees_Rus]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

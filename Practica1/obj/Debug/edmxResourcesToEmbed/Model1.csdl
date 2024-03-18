@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Hobby_shopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Products_Rus">
+    <Key>
+      <PropertyRef Name="Products_Info_ID" />
+      <PropertyRef Name="Название_товара" />
+      <PropertyRef Name="Цена_товара_в_рублях" />
+    </Key>
+    <Property Name="Products_Info_ID" Type="Int32" Nullable="false" />
+    <Property Name="Название_товара" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Цена_товара_в_рублях" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shop_Employees_Rus">
+    <Key>
+      <PropertyRef Name="Employees_Info_ID" />
+      <PropertyRef Name="Фамилия_сотрудника" />
+      <PropertyRef Name="Имя_сотрудника" />
+      <PropertyRef Name="Отчество_сотрудника" />
+      <PropertyRef Name="Возраст_сотрудника" />
+    </Key>
+    <Property Name="Employees_Info_ID" Type="Int32" Nullable="false" />
+    <Property Name="Фамилия_сотрудника" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Имя_сотрудника" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Отчество_сотрудника" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Возраст_сотрудника" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Hobby_shopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Products_Rus" EntityType="Self.Products_Rus" />
+    <EntitySet Name="Shop_Employees_Rus" EntityType="Self.Shop_Employees_Rus" />
+  </EntityContainer>
+</Schema>
