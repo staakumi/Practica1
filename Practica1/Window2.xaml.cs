@@ -75,7 +75,7 @@ namespace Practica1
             emp.ID_Employees_Info = Convert.ToInt32(IDTbx.Text);
             emp.Employees_Last_Name = SurnameTbx.Text;
             emp.Employees_First_Name = NameTbx.Text;
-            emp.Employees_Middle_Name = SurnameTbx.Text;
+            emp.Employees_Middle_Name = MiddleNameTbx.Text;
             emp.Employees_Age = Convert.ToInt32(AgeTbx.Text);
             context.Shop_Employees.Add(emp);
             context.SaveChanges();
@@ -99,6 +99,20 @@ namespace Practica1
         }
         private void ButtonRemoveClick(object sender, RoutedEventArgs e)
         {
+            if(EmployeesDgr.SelectedItem != null)
+            {
+                context.Shop_Employees.Remove(EmployeesDgr.SelectedItem as Shop_Employees);
+
+                context.SaveChanges();
+                EmployeesDgr.ItemsSource = context.Shop_Employees.ToList();
+            }
+            if(ProductsDgr.SelectedItem != null)
+            {
+                context.Products.Remove(ProductsDgr.SelectedItem as Products);
+                 
+                context.SaveChanges();
+                ProductsDgr.ItemsSource = context.Products.ToList();
+            }
 
         }
     }

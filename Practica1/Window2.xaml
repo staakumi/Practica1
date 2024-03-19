@@ -33,8 +33,8 @@
         <TextBox x:Name="NamePro" Grid.Row="3" Text="Введите значение"/>
         <TextBox x:Name="PricePro" Grid.Row="4" Text="Введите значение"/>
         <Button Grid.Row="7" Content="Добавить" Click="ButtonAddClick"/>
-        <Button Grid.Row="8" Content="Изменить"/>
-        <Button Grid.Row="9" Content="Удалить"/>
+        <Button Grid.Row="8" Content="Изменить" />
+        <Button Grid.Row="9" Content="Удалить" Click="ButtonRemoveClick"/>
         
     </Grid>
 </Window>
