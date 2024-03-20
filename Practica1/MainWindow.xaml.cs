@@ -26,8 +26,8 @@ namespace Practica1
 
         
 
-        Shop_Employees_RusTableAdapter employees = new Shop_Employees_RusTableAdapter();
-        Products_RusTableAdapter products = new Products_RusTableAdapter();
+        Shop_EmployeesTableAdapter employees = new Shop_EmployeesTableAdapter();
+        ProductsTableAdapter products = new ProductsTableAdapter();
         public MainWindow()
         {
 

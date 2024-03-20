@@ -25,12 +25,12 @@ namespace Practica1
         public Window2()
         {
             InitializeComponent();
-            EmployeesDgr.ItemsSource = context.Shop_Employees_Rus.ToList();
-            EmployeesDgr.DisplayMemberPath = "Фамилия сотрудника";
+            EmployeesDgr.ItemsSource = context.Shop_Employees.ToList();
+            
 
 
-            ProductsDgr.ItemsSource = context.Products_Rus.ToList();
-            ProductsDgr.DisplayMemberPath = "Название товара";
+            ProductsDgr.ItemsSource = context.Products.ToList();
+            
 
 
 
@@ -95,7 +95,28 @@ namespace Practica1
         }
         private void ButtonChangeClick(object sender, RoutedEventArgs e)
         {
+            if(EmployeesDgr.SelectedItem != null)
+            {
+                    var selected = EmployeesDgr.SelectedItem as Shop_Employees;
+                selected.ID_Employees_Info = Convert.ToInt32(IDPro.Text);
+                selected.Employees_First_Name = NameTbx.Text;
+                selected.Employees_Last_Name = SurnameTbx.Text;
+                selected.Employees_Middle_Name = MiddleNameTbx.Text;
+                selected.Employees_Age = Convert.ToInt32(AgeTbx.Text);
 
+                context.SaveChanges();
+                EmployeesDgr.ItemsSource = context.Shop_Employees.ToList();
+            }
+            if(ProductsDgr.SelectedItem != null)
+            {
+                var selectedPro = ProductsDgr.SelectedItem as Products;
+                selectedPro.ID_Products_Info = Convert.ToInt32(IDPro.Text);
+                selectedPro.Products_Name = NamePro.Text;
+                selectedPro.Products_Price = Convert.ToInt32(PricePro.Text);
+
+                context.SaveChanges();
+                ProductsDgr.ItemsSource = context.Products.ToList();
+            }
         }
         private void ButtonRemoveClick(object sender, RoutedEventArgs e)
         {
@@ -114,6 +135,31 @@ namespace Practica1
                 ProductsDgr.ItemsSource = context.Products.ToList();
             }
 
+        }
+        private void EmployeesDgr_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (EmployeesDgr.SelectedItem != null)
+            {
+                var selected = EmployeesDgr.SelectedItem as Shop_Employees;
+
+                IDTbx.Text = selected.ID_Employees_Info.ToString();
+                NameTbx.Text = selected.Employees_First_Name;
+                SurnameTbx.Text = selected.Employees_Last_Name;
+                MiddleNameTbx.Text = selected.Employees_Middle_Name;
+                AgeTbx.Text = selected.Employees_Age.ToString();
+            }
+        }
+
+        private void ProductsDgr_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(ProductsDgr.SelectedItem != null)
+            {
+                var selectedPro = ProductsDgr.SelectedItem as Products;
+
+                IDPro.Text = selectedPro.ID_Products_Info.ToString();
+                NamePro.Text = selectedPro.Products_Name;
+                PricePro.Text = selectedPro.Products_Price.ToString();
+            }
         }
     }
 }
